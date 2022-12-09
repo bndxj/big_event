@@ -23,7 +23,7 @@
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="userinfo">
-                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+                        <img src="http://t.cn/RCzsdCq" class="layui-nav-img" style="display: none" />
                         <span class="text-avatar">A</span> 个人中心
                     </a>
                     <dl class="layui-nav-child">
@@ -41,7 +41,7 @@
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
                 <div class="userinfo">
-                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img" />
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img" style="display: none" />
                     <span class="text-avatar">A</span>
                     <span id="welcome">欢迎 ***</span>
                 </div>
@@ -89,7 +89,7 @@
 
         <div class="layui-footer">
             <!-- 底部固定区域 -->
-            © www.itheima.com - 黑马程序员
+            © www.itheima.com - 太原黑马程序员
         </div>
     </div>
     <!-- 导入 layui 的JS文件 -->
@@ -101,5 +101,25 @@
     <!-- 导入自己的 js 文件 -->
     <script src="./assets/js/index.js"></script>
 </body>
+<script>
+    function getUserInfo() {
+        $.ajax({
+            type: "get",
+            url: "/my/userinfo",
+            success: (res) => {
+                if (res.status !== 0) return layer.msg("获取用户信息失败！");
+
+                renderAvatar(res.data);
+            },
+            complete: (res) => {
+                console.log(res);
+                if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
+                    localStorage.removeItem("token");
+                    location.href = "./login.html";
+                }
+            },
+        });
+    }
+</script>
 
 </html>
