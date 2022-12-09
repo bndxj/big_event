@@ -23,7 +23,24 @@ $(function() {
     });
 });
 
+function getUserInfo() {
+    $.ajax({
+        type: "get",
+        url: "/my/userinfo",
+        success: (res) => {
+            if (res.status !== 0) return layer.msg("获取用户信息失败！");
 
+            renderAvatar(res.data);
+        },
+        complete: (res) => {
+            console.log(res);
+            if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
+                localStorage.removeItem("token");
+                location.href = "./login.html";
+            }
+        },
+    });
+}
 
 function renderAvatar(user) {
     const name = user.nickname || user.username;
