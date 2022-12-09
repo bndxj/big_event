@@ -1,211 +1,39 @@
-< !DOCTYPE html >
-    <
-    html lang = "en" >
-
-    <
-    head >
-    <
-    meta charset = "UTF-8" / >
-    <
-    meta name = "viewport"
-content = "width=device-width, initial-scale=1.0" / >
-    <
-    title > 后台主页 < /title>
-    <!-- 导入 layui 的样式表 -->
-    <
-    link rel = "stylesheet"
-href = "./assets/lib/layui/css/layui.css" / >
-    <!-- 导入第三方图标库 -->
-    <
-    link rel = "stylesheet"
-href = "./assets/fonts/iconfont.css" / >
-    <!-- 导入自己的样式表 -->
-    <
-    link rel = "stylesheet"
-href = "./assets/css/index.css" / >
-    <
-    /head>
-
-<
-body class = "layui-layout-body" >
-    <
-    div class = "layui-layout layui-layout-admin" >
-    <
-    div class = "layui-header" >
-    <
-    div class = "layui-logo" >
-    <
-    img src = "./assets/images/logo.png"
-alt = "" / >
-    <
-    /div>
-    <!-- 头部区域（可配合layui已有的水平导航） -->
-    <
-    ul class = "layui-nav layui-layout-right" >
-    <
-    li class = "layui-nav-item" >
-    <
-    a href = "javascript:;"
-class = "userinfo" >
-    <
-    img src = "http://t.cn/RCzsdCq"
-class = "layui-nav-img"
-style = "display: none" / >
-    <
-    span class = "text-avatar" > A < /span> 个人中心 <
-    /a> <
-    dl class = "layui-nav-child" >
-    <
-    dd > < a href = "./user/user_info.html"
-target = "fm" > 基本资料 < /a></dd >
-    <
-    dd > < a href = "./user/user_avatar.html"
-target = "fm" > 更换头像 < /a></dd >
-    <
-    dd > < a href = "./user/user_pwd.html"
-target = "fm" > 重置密码 < /a></dd >
-    <
-    /dl> <
-    /li> <
-    li class = "layui-nav-item" >
-    <
-    a href = "javascript:;"
-id = "btnLogout" > < span class = "iconfont icon-tuichu" > < /span>退出</a >
-    <
-    /li> <
-    /ul> <
-    /div>
-
-<
-div class = "layui-side layui-bg-black" >
-    <
-    div class = "layui-side-scroll" >
-    <
-    div class = "userinfo" >
-    <
-    img src = "http://t.cn/RCzsdCq"
-class = "layui-nav-img"
-style = "display: none" / >
-    <
-    span class = "text-avatar" > A < /span> <
-    span id = "welcome" > 欢迎 ** * < /span> <
-    /div>
-    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-    <
-    ul class = "layui-nav layui-nav-tree"
-lay - shrink = "all" >
-    <
-    li class = "layui-nav-item layui-this" >
-    <
-    a href = "./home/dashboard.html"
-target = "fm" > < span class = "iconfont icon-home" > < /span>首页</a >
-    <
-    /li> <
-    li class = "layui-nav-item" >
-    <
-    a class = ""
-href = "javascript:;" > < span class = "iconfont icon-16" > < /span>文章管理</a >
-    <
-    dl class = "layui-nav-child" >
-    <
-    dd >
-    <
-    a href = "./article/art_cate.html"
-target = "fm" > < i class = "layui-icon layui-icon-app" > < /i>文章类别</a >
-    <
-    /dd> <
-    dd >
-    <
-    a href = "./article/art_list.html"
-target = "fm" > < i class = "layui-icon layui-icon-app" > < /i>文章列表</a >
-    <
-    /dd> <
-    dd >
-    <
-    a href = "./article/art_pub.html"
-target = "fm" > < i class = "layui-icon layui-icon-app" > < /i>发布文章</a >
-    <
-    /dd> <
-    /dl> <
-    /li> <
-    li class = "layui-nav-item" >
-    <
-    a href = "javascript:;" > < span class = "iconfont icon-user" > < /span>个人中心</a >
-    <
-    dl class = "layui-nav-child" >
-    <
-    dd >
-    <
-    a href = "./user/user_info.html"
-target = "fm" > < i class = "layui-icon layui-icon-app" > < /i>基本资料</a >
-    <
-    /dd> <
-    dd >
-    <
-    a href = "./user/user_avatar.html"
-target = "fm" > < i class = "layui-icon layui-icon-app" > < /i>更换头像</a >
-    <
-    /dd> <
-    dd >
-    <
-    a href = "./user/user_pwd.html"
-target = "fm" > < i class = "layui-icon layui-icon-app" > < /i>重置密码</a >
-    <
-    /dd> <
-    /dl> <
-    /li> <
-    /ul> <
-    /div> <
-    /div>
-
-<
-div class = "layui-body" >
-    <!-- 内容主体区域 -->
-    <
-    iframe name = "fm"
-src = "./home/dashboard.html"
-frameborder = "0" > < /iframe> <
-    /div>
-
-<
-div class = "layui-footer" >
-    <!-- 底部固定区域 -->
-    ©www.itheima.com - 太原黑马程序员 <
-    /div> <
-    /div>
-    <!-- 导入 layui 的JS文件 -->
-    <
-    script src = "./assets/lib/layui/layui.all.js" > < /script>
-    <!-- 导入 jQuery -->
-    <
-    script src = "./assets/lib/jquery.js" > < /script>
-    <!-- 导入自己封装的 baseAPI -->
-    <
-    script src = "./assets/js/baseAPI.js" > < /script>
-    <!-- 导入自己的 js 文件 -->
-    <
-    script src = "./assets/js/index.js" > < /script> <
-    /body> <
-    script >
-    function getUserInfo() {
-        $.ajax({
-            type: "get",
-            url: "/my/userinfo",
-            success: (res) => {
-                if (res.status !== 0) return layer.msg("获取用户信息失败！");
-
-                renderAvatar(res.data);
+/*
+ * @Descripttion: 
+ * @version: 1.0
+ * @Author: 暴虐的小金
+ * @Date: 2022-11-29 19:01:06
+ * @LastEditors: 暴虐的小金
+ * @LastEditTime: 2022-12-09 16:39:43
+ */
+$(function() {
+    getUserInfo();
+    $("#btnLogout").click(function() {
+        layer.confirm(
+            "是否要退出登录？", {
+                icon: 3,
+                title: "提示",
             },
-            complete: (res) => {
-                console.log(res);
-                if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败！") {
-                    localStorage.removeItem("token");
-                    location.href = "./login.html";
-                }
-            },
-        });
-    } <
-    /script>
+            function(index) {
+                localStorage.removeItem("token");
+                location.href = "./login.html";
+                layer.close(index);
+            }
+        );
+    });
+});
 
-<
-/html>
+
+
+function renderAvatar(user) {
+    const name = user.nickname || user.username;
+    $("#welcome").html("欢迎&nbsp;&nbsp:" + name);
+    if (user.user_pic !== null) {
+        $(".layui-nav-img").attr("src", user.user_pic).show();
+        $(".text-avatar").hide();
+    } else {
+        $(".layui-nav-img").hide();
+        const first = name[0].toUpperCase();
+        $(".text-avatar").html(first).show();
+    }
+}
