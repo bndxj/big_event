@@ -4,7 +4,7 @@
  * @Author: 暴虐的小金
  * @Date: 2022-11-29 19:01:06
  * @LastEditors: 暴虐的小金
- * @LastEditTime: 2022-12-10 20:56:07
+ * @LastEditTime: 2022-12-11 10:37:15
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,8 @@
 <body>
     <!-- 卡片区域 -->
     <div class="layui-card">
-        <div class="layui-card-header">写文章</div>
+        <div class="layui-card-header" id="goback">返回</div>
+        <div class="layui-card-header">修改文章</div>
         <div class="layui-card-body">
             <!-- 发布文章的表单 -->
             <form class="layui-form" id="form-pub">
@@ -73,8 +74,8 @@
                 <!-- 第五行 -->
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit>发布</button>
-                        <button class="layui-btn layui-btn-primary" lay-submit id="btnSave2">存为草稿</button>
+                        <button class="layui-btn" lay-submit>改为发布</button>
+                        <button class="layui-btn layui-btn-primary" lay-submit id="btnSave2">改为草稿</button>
                     </div>
                 </div>
             </form>
@@ -83,7 +84,7 @@
 
     <!-- 分类的模板结构 -->
     <script type="text/html" id="tpl-cate">
-        <option value="">请选择文章类别</option>
+        <option value="">请重新选择文章类别</option>
         {{each data}}
         <option value="{{$value.Id}}">{{$value.name}}</option>
         {{/each}}
@@ -102,7 +103,7 @@
     <script src="../assets/lib/cropper/Cropper.js"></script>
     <script src="../assets/lib/cropper/jquery-cropper.js"></script>
     <!-- 导入自己的 JS -->
-    <script src="../assets/js/article/art_pub.js"></script>
+    <script src="../assets/js/article/art_updata.js"></script>
 </body>
 
 </html>

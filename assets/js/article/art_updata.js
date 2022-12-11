@@ -2,15 +2,32 @@
  * @Descripttion: 
  * @version: 1.0
  * @Author: 暴虐的小金
- * @Date: 2022-11-29 19:01:06
+ * @Date: 2022-12-10 21:36:56
  * @LastEditors: 暴虐的小金
- * @LastEditTime: 2022-12-11 10:19:16
+ * @LastEditTime: 2022-12-11 10:49:21
  */
 $(function() {
+    const Id = window.location.search.split('=')
     const layer = layui.layer;
     const form = layui.form;
-    getCateList();
+    getOldInfo(Id[1]);
     initEditor();
+    getCateList();
+
+    function getOldInfo(Id) {
+        $.ajax(({
+            url: '/my/article/' + Id,
+            success: res => {
+                console.log(res.data);
+                $("#form-pub [name=title]").val(res.data.title)
+                $('textarea').val(res.data.content)
+                $image
+                    .cropper("destroy") // 销毁旧的裁剪区域
+                    .attr("src", 'http://api-breakingnews-web.itheima.net' + res.data.cover_img)
+                    .cropper(options); // 重新初始化裁剪区域
+            }
+        }))
+    }
 
     function getCateList() {
         $.ajax({
@@ -51,6 +68,8 @@ $(function() {
     $("#form-pub").submit(function(e) {
         e.preventDefault();
         const formData = new FormData($(this)[0]);
+        formData.append("Id", Id[1]);
+
         formData.append("state", art_state);
         $image
             .cropper("getCroppedCanvas", {
@@ -70,19 +89,22 @@ $(function() {
     function setArtic(formData) {
         $.ajax({
             type: "POST",
-            url: "/my/article/add",
+            url: "/my/article/edit",
             data: formData,
             contentType: false,
             processData: false,
             success: (res) => {
                 if (res.status !== 0) {
-                    return layer.msg("发送文章失败");
+                    return layer.msg("修改文章失败");
                 }
-                layer.msg("发送文章成功");
+                layer.msg("修改文章成功");
                 setTimeout(() => {
                     location.href = "./art_list.html";
                 }, 600)
             },
         });
     }
-});
+    $('#goback').click(function() {
+        history.go(-1)
+    })
+})
